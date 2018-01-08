@@ -3,14 +3,14 @@
     "description": "Starting boilerplate for Laravel packages. Override the content in here when creating your own package",
     "type": "library",
     "keywords": ["laravel","lumen"],
-    "require": {},
+    "require": {
+        "behat/behat": "^3.4",
+        "behat/mink": "^1.7",
+        "behat/mink-goutte-driver": "^1.2"
+    },
     "require-dev": {
-        "orchestra/testbench": "3.5",
-        "phpunit/phpunit": "^6.3",
-        "mockery/mockery": "~1.0",
         "squizlabs/php_codesniffer": "^3.1",
-        "psy/psysh": "0.8.*",
-        "matthewbdaly/artisan-standalone": "0.0.*"
+        "psy/psysh": "0.8.*"
     },
     "license": "MIT",
     "authors": [
@@ -21,7 +21,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Matthewbdaly\\LaravelPackageBoilerplate\\": "src/"
+            "Matthewbdaly\\BehatSteps\\": "src/"
         }
     },
     "autoload-dev": {
@@ -29,28 +29,9 @@
             "Tests\\": "tests/"
         }
     },
-    "scripts": {
-        "post-create-project-cmd": [
-            "php -r \"mkdir('bootstrap');\"",
-            "php -r \"mkdir('bootstrap'.DIRECTORY_SEPARATOR.'cache');\"",
-            "php -r \"mkdir('src'.DIRECTORY_SEPARATOR.'Http');\"",
-            "php -r \"mkdir('src'.DIRECTORY_SEPARATOR.'Http'.DIRECTORY_SEPARATOR.'Controllers');\"",
-            "php -r \"mkdir('src'.DIRECTORY_SEPARATOR.'Http'.DIRECTORY_SEPARATOR.'Middleware');\"",
-            "php -r \"mkdir('src'.DIRECTORY_SEPARATOR.'database'.DIRECTORY_SEPARATOR.'factories');\"",
-            "php -r \"mkdir('src'.DIRECTORY_SEPARATOR.'database'.DIRECTORY_SEPARATOR.'migrations');\"",
-            "php -r \"mkdir('routes');\""
-        ]
-    },
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
         "optimize-autoloader": true
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Matthewbdaly\\LaravelPackageBoilerplate\\Providers\\ServiceProvider"
-            ]
-        }
     }
 }
