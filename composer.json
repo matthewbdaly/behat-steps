@@ -1,6 +1,6 @@
 {
-    "name": "matthewbdaly/laravel-package-boilerplate",
-    "description": "Starting boilerplate for Laravel packages. Override the content in here when creating your own package",
+    "name": "matthewbdaly/behat-steps",
+    "description": "A collection of Behat steps I use",
     "type": "library",
     "keywords": ["laravel","lumen"],
     "require": {
@@ -9,7 +9,6 @@
         "behat/mink-goutte-driver": "^1.2"
     },
     "require-dev": {
-        "squizlabs/php_codesniffer": "^3.1",
         "psy/psysh": "0.8.*"
     },
     "license": "MIT",
@@ -22,11 +21,6 @@
     "autoload": {
         "psr-4": {
             "Matthewbdaly\\BehatSteps\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Tests\\": "tests/"
         }
     },
     "config": {
