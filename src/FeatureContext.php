@@ -43,6 +43,9 @@ class FeatureContext implements Context
     {
         $page = $this->session->getPage();
         $el = $page->findLink($link);
+        if (!$el) {
+            throw new \Exception('Could not find link');
+        }
         $el->click();
     }
 
@@ -53,6 +56,9 @@ class FeatureContext implements Context
     {
         $page = $this->session->getPage();
         $el = $page->findButton($button);
+        if (!$el) {
+            throw new \Exception('Could not find button');
+        }
         $el->press();
     }
 
@@ -63,6 +69,9 @@ class FeatureContext implements Context
     {
         $page = $this->session->getPage();
         $el = $page->findField($field);
+        if (!$el) {
+            throw new \Exception('Could not find field');
+        }
         $el->setValue($value);
     }
 
@@ -78,7 +87,7 @@ class FeatureContext implements Context
             $path = "/";
         }
         if ($path != $route) {
-            throw new \Exception();
+            throw new \Exception('Route does not match expectation');
         }
     }
 
@@ -89,7 +98,7 @@ class FeatureContext implements Context
     {
         $content = $this->session->getPage()->getContent();
         if (!strpos($content, $text)) {
-            throw new \Exception();
+            throw new \Exception('Text not found');
         }
     }
 }
